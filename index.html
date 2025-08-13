@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HeatmapX — See attention. Act faster.</title>
+
+  <meta name="description" content="HeatmapX shows where users click & scroll and tracks trending tokens in one sleek dashboard.">
+  <meta property="og:title" content="HeatmapX — See attention. Act faster.">
+  <meta property="og:description" content="Interactive heatmaps + a Glyde-style trending board.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0f0c1a">
+
+  <link rel="stylesheet" href="./styles.css?v=2">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='g' cx='50%25' cy='50%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%23a78bfa'/%3E%3Cstop offset='100%25' stop-color='%23ff2e88'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='28' fill='url(%23g)'/%3E%3C/svg%3E">
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">Heatmap<span>X</span></a>
+      <button class="menu" id="menuBtn" aria-label="Toggle menu">☰</button>
+      <nav id="navLinks">
+        <a href="#features">Features</a>
+        <a href="#demo">Demo</a>
+        <a href="#trending">Trending</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact" class="btn small">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="top" class="hero">
+    <div class="wrap">
+      <h1>Heatmaps + Trending, in one sleek UI.</h1>
+      <p class="sub">See where users click & scroll. Track momentum like a pro. Mobile-first.</p>
+      <div class="cta-row">
+        <a class="btn" href="#demo">Try the heatmap demo</a>
+        <a class="btn ghost" href="#trending">Open the trending board</a>
+      </div>
+
+      <div class="marquee card" aria-hidden="true">
+        <div class="track">
+          <span>Solana</span><span>Next.js</span><span>Vercel</span>
+          <span>GitHub</span><span>Formspree</span><span>PostHog</span>
+          <span>Cloudflare</span><span>Supabase</span>
+        </div>
+      </div>
+
+      <div class="card demo">
+        <div class="bar"><span></span></div>
+        <div class="heat-area" id="heatArea" title="Tap anywhere to drop heat"></div>
+        <p class="hint">Tap/click above — your interactions appear as hot spots.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="section">
+    <div class="wrap grid">
+      <div class="feat"><h3>🔥 Instant Heatmaps</h3><p>Visualize clicks & scrolls to fix dead zones.</p></div>
+      <div class="feat"><h3>📈 Momentum Board</h3><p>Glyde-style list with filters and sorting.</p></div>
+      <div class="feat"><h3>🛡️ Privacy First</h3><p>No keystrokes. No PII. Aggregate behavior only.</p></div>
+      <div class="feat"><h3>⚡ One-tag Install</h3><p>Copy-paste script. No build needed.</p></div>
+    </div>
+  </section>
+
+  <section id="demo" class="section alt">
+    <div class="wrap">
+      <h2>Try the Heatmap Demo</h2>
+      <p>Drop a script like this (placeholder):</p>
+      <pre class="code"><code>&lt;script src="/hm.js" defer&gt;&lt;/script&gt;</code></pre>
+      <p class="dim">Client-side demo only. We’ll add a backend when you’re ready.</p>
+    </div>
+  </section>
+
+  <section id="trending" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Trending Board</h2>
+        <div class="filters">
+          <input id="search" type="search" placeholder="Search…">
+          <select id="timeframe"><option>1h</option><option>6h</option><option selected>24h</option></select>
+          <select id="filter"><option value="all" selected>All</option><option value="gainers">Top Gainers</option><option value="volume">High Volume</option><option value="new">New</option></select>
+        </div>
+      </div>
+      <div class="board card">
+        <div class="board-head">
+          <button data-sort="rank">#</button>
+          <button data-sort="symbol">Symbol</button>
+          <button data-sort="price">Price</button>
+          <button data-sort="change">Change</button>
+          <button data-sort="volume">Volume</button>
+          <button data-sort="holders">Holders</button>
+        </div>
+        <div id="rows" class="board-rows"></div>
+        <div class="board-foot dim">Mock data for demo.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section alt">
+    <div class="wrap pricing">
+      <div class="plan card"><h3>Starter</h3><p class="price">$0</p><ul><li>1 site</li><li>1,000 events/day</li><li>Trending board</li></ul><a class="btn" href="#contact">Get started</a></div>
+      <div class="plan card featured"><h3>Pro</h3><p class="price">$19/mo</p><ul><li>10 sites</li><li>100k events/day</li><li>Realtime board + export</li></ul><a class="btn" href="#contact">Start Pro</a></div>
+      <div class="plan card"><h3>Team</h3><p class="price">Custom</p><ul><li>Unlimited sites</li><li>SLA & SSO</li><li>Priority support</li></ul><a class="btn ghost" href="#contact">Talk to sales</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap faq">
+      <h2>FAQ</h2>
+      <details open><summary>Is this a trading app?</summary><p>No—UI demo only. No wallets/APIs.</p></details>
+      <details><summary>How to collect real data?</summary><p>Add a tiny serverless API + DB (Vercel + Supabase). I can wire it up when you want.</p></details>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <form class="card form" action="https://formspree.io/f/your-id" method="POST">
+        <label>Email <input required type="email" name="email" placeholder="you@domain.com"></label>
+        <label>Message <textarea name="message" rows="4" placeholder="Tell us about your site…"></textarea></label>
+        <button class="btn" type="submit">Send</button>
+        <p class="dim">We usually reply within a day.</p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap"><p>© <span id="year"></span> HeatmapX • <a href="#">Privacy</a></p></div>
+  </footer>
+
+  <script src="./script.js?v=2" defer></script>
+</body>
+</html>
