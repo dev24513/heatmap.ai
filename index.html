@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HeatmapX — Top Picks & Live Board</title>
+  <meta name="description" content="Find Solana tokens with rising volume and momentum. Trade instantly via Jupiter.">
+  <meta name="theme-color" content="#0b0b0d">
+  <link rel="stylesheet" href="./styles.css?v=5">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='g' cx='50%25' cy='50%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%2300fff7'/%3E%3Cstop offset='100%25' stop-color='%23ff2e88'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='28' fill='url(%23g)'/%3E%3C/svg%3E">
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">Heatmap<span>X</span></a>
+      <button class="menu" id="menuBtn" aria-label="Toggle menu">☰</button>
+      <nav id="navLinks">
+        <a href="#picks">Top Picks</a>
+        <a href="#trending">Trending</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="top" class="hero">
+    <div class="wrap">
+      <h1>Find movers fast. Trade faster.</h1>
+      <p class="sub">Auto-filtered Solana tokens with rising volume & momentum. One-tap trade via Jupiter.</p>
+    </div>
+  </section>
+
+  <section id="picks" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Top Picks (live)</h2>
+        <div class="dim">Filtered for rising 5m activity, ≥$20k liquidity, ≥$100k 24h volume, and ≥+3% 1h change.</div>
+      </div>
+      <div class="board card">
+        <div class="board-head grid7">
+          <div>#</div><div>Pair</div><div>Price</div><div>1h</div><div>24h Vol</div><div>Liquidity</div><div></div>
+        </div>
+        <div id="pickRows" class="board-rows"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trending" class="section alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Trending (live)</h2>
+        <div class="filters">
+          <input id="search" type="search" placeholder="Search…">
+          <select id="timeframe"><option>1h</option><option>6h</option><option selected>24h</option></select>
+          <select id="filter"><option value="all" selected>All</option><option value="gainers">Top Gainers</option><option value="volume">High Volume</option></select>
+        </div>
+      </div>
+      <div class="board card">
+        <div class="board-head grid6">
+          <button data-sort="rank">#</button>
+          <button data-sort="symbol">Pair</button>
+          <button data-sort="priceUsd">Price</button>
+          <button data-sort="change24h">24h</button>
+          <button data-sort="volume24h">24h Vol</button>
+          <button data-sort="txns24h">Txns</button>
+        </div>
+        <div id="rows" class="board-rows"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trade Modal -->
+  <div id="tradeModal" class="modal" hidden>
+    <div class="modal-body">
+      <button id="modalClose" class="modal-close" aria-label="Close">✕</button>
+      <iframe id="tradeFrame" title="Trade on Jupiter" allow="clipboard-read; clipboard-write" style="width:100%;height:80vh;border:0;border-radius:12px;"></iframe>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap"><p>© <span id="year"></span> HeatmapX • Demo UI using public data</p></div>
+  </footer>
+
+  <script src="./script.js?v=5" defer></script>
+</body>
+</html>
