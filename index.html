@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HeatmapX — Direct Live Board</title>
+  <meta name="description" content="Live Solana momentum board using DexScreener without serverless APIs.">
+  <meta name="theme-color" content="#0b0b0d">
+  <link rel="stylesheet" href="./styles.css?v=7">
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">Heatmap<span>X</span></a>
+      <button class="menu" id="menuBtn" aria-label="Toggle menu">☰</button>
+      <nav id="navLinks">
+        <a href="#picks">Top Picks</a>
+        <a href="#trending">Trending</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="top" class="hero">
+    <div class="wrap">
+      <h1>Find movers fast. Trade faster.</h1>
+      <p class="sub">Live Solana pairs from DexScreener. No API keys, no serverless.</p>
+    </div>
+  </section>
+
+  <section id="picks" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Top Picks (live)</h2>
+        <div class="dim">Liquidity ≥ $20k • 24h Vol ≥ $100k • 1h ≥ +3% • 5m surge</div>
+      </div>
+      <div class="board card">
+        <div class="board-head grid7">
+          <div>#</div><div>Pair</div><div>Price</div><div>1h</div><div>24h Vol</div><div>Liquidity</div><div></div>
+        </div>
+        <div id="pickRows" class="board-rows"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trending" class="section alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Trending (live)</h2>
+        <div class="filters">
+          <input id="search" type="search" placeholder="Search…">
+          <select id="filter"><option value="all" selected>All</option><option value="gainers">Top Gainers</option><option value="volume">High Volume</option></select>
+        </div>
+      </div>
+      <div class="board card">
+        <div class="board-head grid6">
+          <button data-sort="rank">#</button>
+          <button data-sort="symbol">Pair</button>
+          <button data-sort="priceUsd">Price</button>
+          <button data-sort="change24h">24h</button>
+          <button data-sort="volume24h">24h Vol</button>
+          <button data-sort="txns24h">Txns</button>
+        </div>
+        <div id="rows" class="board-rows"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap"><p>© <span id="year"></span> HeatmapX • public data demo</p></div>
+  </footer>
+
+  <script src="./script.js?v=7" defer></script>
+</body>
+</html>
